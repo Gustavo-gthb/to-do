@@ -1,19 +1,22 @@
 import React from 'react'
 import styles from "@/components/layout/Modal/style.module.css"
+import ToDoList from './ToDoList';
 
 const Modal = () => {
   return (
-    <div className={styles.container}>
 
-        <div className={styles.searchField}>
-            campo de pesquisa aaaaaaaaaaaaaaa
-        </div>
+    <ToDoList/>
+    // <div className={styles.container}>
 
-        <div className={styles.taskListField}>
-            aaaaa
-        </div>
+    //     <div className={styles.addTasksField}>
+    //         campo de pesquisa aaaaaaaaaaaaaaa
+    //     </div>
 
-    </div>
+    //     <div className={styles.taskListField}>
+    //       <ToDoList/>
+    //     </div>
+
+    // </div>
   )
 }
 

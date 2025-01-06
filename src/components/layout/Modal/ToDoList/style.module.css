@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.addTasksField {
+    border: 1px solid   hsl(235, 24%, 19%);
+    background-color: hsl(235, 24%, 19%);
+    width: 38.1%;
+    height: 9vh;
+    border-radius: 5px;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 169px;
+
+
+    z-index: 999;
+}
+
+.taskListField {
+    border: 1px solid   hsl(235, 24%, 19%);
+    background-color: hsl(235, 24%, 19%);
+    width: 38.1%;
+    height: 9vh;
+    border-radius: 5px;
+
+    
+}
+
+.taskListField li {
+    list-style: none;
+}
+
+.taskContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.completed {
+    border: 1px solid white;
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}

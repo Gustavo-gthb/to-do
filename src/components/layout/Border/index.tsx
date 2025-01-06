@@ -11,7 +11,7 @@ const Border = () => {
             <Image src={ BackgroundImageDark } alt="" width={1540} height={320} />
         </div>
 
-
+          
     </div>
   )
 }
