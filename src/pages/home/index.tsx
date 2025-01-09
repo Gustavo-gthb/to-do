@@ -1,17 +1,18 @@
-import Border from '@/components/layout/Border';
-import Modal from '@/components/layout/Modal';
-import React from 'react'
+import Border from "@/components/layout/Border";
+import Modal from "@/components/layout/Modal";
+import React from "react";
 
 const HomePage = () => {
+
+
   return (
     <div>
 
-      <Border/>
-      <Modal/>
-        
+        <Border />
+        <Modal />
 
     </div>
-  )
-}
+  );
+};
 
 export default HomePage;

@@ -1,57 +1,87 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
 
 .addTasksField {
-    border: 1px solid   hsl(235, 24%, 19%);
-    background-color: hsl(235, 24%, 19%);
-    width: 38.1%;
-    height: 9vh;
-    border-radius: 5px;
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  border: 1px solid hsl(235, 24%, 19%);
+  background-color: hsl(235, 24%, 19%);
+  width: 38.1%;
+  height: 9vh;
+  border-radius: 5px;
 
-    position: fixed;
-    top: 169px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
+  position: fixed;
+  top: 169px;
 
-    z-index: 999;
+  z-index: 999;
 }
 
 .taskListField {
-    border: 1px solid   hsl(235, 24%, 19%);
-    background-color: hsl(235, 24%, 19%);
-    width: 38.1%;
-    height: 9vh;
-    border-radius: 5px;
-
-    
+  border: 1px solid hsl(235, 24%, 19%);
+  background-color: hsl(235, 24%, 19%);
+  width: 38.1%;
+  height: 9vh;
+  border-radius: 5px;
 }
 
 .taskListField li {
-    list-style: none;
+  list-style: none;
 }
 
 .taskContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .completed {
-    border: 1px solid white;
-    background-color: white;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid black;
+
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 }
+
+.completedTodo {
+  transition: background-color 1s ease-in-out;
+  background: linear-gradient(90deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.iconNotChecked {
+  transition: opacity 1s, visibility 1s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.iconChecked {
+  transition: opacity 1s, visibility 1s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.textTask {
+  font-size: 18px;
+  transition: color 1s ease-in-out;
+  color: hsl(236, 33%, 92%);
+}
+
+.textTaskCompleted {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%);
+  
+}
+
