@@ -15,8 +15,8 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
 import SortableItem from "./Sortable/SortableItem";
+import { restrictToParentElement } from "@dnd-kit/modifiers";
 
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
@@ -58,7 +58,7 @@ const ToDoList = () => {
     if (active.id !== over.id) {
       setTodos((prevTodos) => {
         const oldIndex = prevTodos.findIndex((todo) => todo.id === active.id);
-        const newIndex = prevTodos.findIndex((todo) => todo.id === over.id)
+        const newIndex = prevTodos.findIndex((todo) => todo.id === over.id);
 
         return arrayMove(prevTodos, oldIndex, newIndex);
       });
@@ -70,6 +70,7 @@ const ToDoList = () => {
       sensors={sensors}
       collisionDetection={closestCenter}
       onDragEnd={handleDragEnd}
+      modifiers={[restrictToParentElement]}
     >
       <div className={styles.container}>
         <div className={styles.addTasksField}>
@@ -86,48 +87,49 @@ const ToDoList = () => {
           strategy={verticalListSortingStrategy}
         >
           {todos.map((todo) => (
-            <SortableItem className={styles.sortableItem} key={todo.id} id={todo.id}>
-              <div className={styles.taskListField}>
-                <div className={styles.taskContainer}>
+            
+
+            <SortableItem key={todo.id} id={todo.id}>
+              <div className={styles.taskContainer}>
+                <div
+                  className={[
+                    styles.completed,
+                    completedTodo
+                    ? styles.completedTodo
+                    : styles.notCompletedTodo,
+                  ].join(" ")}
+                  onClick={toggleTodo}
+                  >
+                  {console.log(completedTodo)}
                   <div
                     className={[
-                      styles.completed,
                       completedTodo
-                        ? styles.completedTodo
-                        : styles.notCompletedTodo,
+                      ? styles.iconChecked
+                      : styles.iconNotChecked,
                     ].join(" ")}
-                    onClick={toggleTodo}
-                  >
-                    {console.log(completedTodo)}
-                    <div
-                      className={[
-                        completedTodo
-                          ? styles.iconChecked
-                          : styles.iconNotChecked,
-                      ].join(" ")}
                     >
-                      <IconChecked />
-                    </div>
+                    <IconChecked />
                   </div>
-
-                  <h3
-                    className={[
-                      styles.textTask,
-                      completedTodo
-                        ? styles.textTaskCompleted
-                        : styles.textTaskNotCompleted,
-                    ].join(" ")}
-                  >
-                    {todo.text}{" "}
-                  </h3>
-                  <button onClick={() => removeTodo(todo.id)}>remover </button>
                 </div>
+
+                <h3
+                  className={[
+                    styles.textTask,
+                    completedTodo
+                    ? styles.textTaskCompleted
+                    : styles.textTaskNotCompleted,
+                  ].join(" ")}
+                  >
+                  {todo.text}{" "}
+                </h3>
+                <button onClick={() => removeTodo(todo.id)}>remover </button>
               </div>
             </SortableItem>
+
           ))}
         </SortableContext>
       </div>
-    </DndContext>
+      </DndContext>
   );
 };
 
