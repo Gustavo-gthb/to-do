@@ -2,4 +2,6 @@
 background-color: hsl(235, 24%, 19%);
 width: 38.1%;
 height: 9vh;
-border-radius: 5px;}
+border-radius: 5px;
+touch-action: none;
+}

@@ -7,6 +7,7 @@ import {
   closestCenter,
   DndContext,
   PointerSensor,
+  TouchSensor,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -43,7 +44,14 @@ const ToDoList = () => {
       activationConstraint: {
         distance: 5,
       },
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint : {
+        delay:250,
+        tolerance:5,
+      }
     })
+
   );
 
   const handleDragEnd = (e) => {
